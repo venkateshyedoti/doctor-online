@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters {
+  choice choices: ['dev', 'test', 'prod'], description: 'choose to environment to deploy', name: 'envName'
+}
+
     stages {
        
         stage("maven builds") {
