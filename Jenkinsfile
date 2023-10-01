@@ -1,7 +1,10 @@
 pipeline {
     agent any
     stages {
-    
+        stage('git checkout') {
+            steps {
+                git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/venkateshyedoti/doctor-online'
+            }
         }
         stage("maven builds") {
             steps {
